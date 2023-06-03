@@ -9,25 +9,23 @@
       I am a server and software developer with great knowledge in Server
       Establishing, Database Setup, and coding.
     </p>
-    <ul>
-      <li>Email: sayanpramanik2012@gmail.com</li>
-      <li>Phone: 9940218268</li>
-      <li>Location: Chennai, India</li>
-      <li>
-        <a href="https://sayanpramanik2012.github.io/Proﬁle/"
-          >sayanpramanik2012.github.io/Proﬁle/</a
-        >
-      </li>
-      <li>
-        <a href="https://linkedin.com/in/sayan-pramanik-084358178"
-          >linkedin.com/in/sayan-pramanik-084358178</a
-        >
-      </li>
-      <li>
-        <a href="https://github.com/sayanpramanik2012"
-          >github.com/sayanpramanik2012</a
-        >
-      </li>
-    </ul>
+
+    <h3>Achievements</h3>
+    <carousel>
+      <slide *ngFor="let achievement of achievements">
+        <div class="achievement-item">
+          <!-- Display your achievement details here -->
+          <h4>{{ achievement.title }}</h4>
+          <p>{{ achievement.description }}</p>
+          <!-- Add any other relevant information -->
+        </div>
+      </slide>
+    </carousel>
+
+    <!-- <div class="button-container">
+      <button class="button type1" routerLink="/experience">
+        <span class="btn-txt">Know More about me</span>
+      </button>
+    </div> -->
   </div>
 </section>
