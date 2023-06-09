@@ -8,7 +8,12 @@ import { AboutComponent } from './about/about.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { EducationComponent } from './education/education.component';
 import { SkillsComponent } from './skills/skills.component';
+import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { HttpClientModule } from '@angular/common/http';
+
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +24,15 @@ import { ContactComponent } from './contact/contact.component';
     EducationComponent,
     SkillsComponent,
     ContactComponent,
+    ProjectsComponent,
+    LoadingComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CarouselModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,33 +1,55 @@
 <section id="about">
   <div class="avatar">
-    <img src="path_to_your_cartoon_face_image" alt="Your Cartoon Face" />
+    <img src="path_to_your_cartoon_face_image" alt="Face" />
   </div>
   <div class="description">
     <h2>Sayan Pramanik</h2>
-    <h3>Server and Software Developer</h3>
+    <h3>Web Developer | Server and Software Developer</h3>
     <p>
-      I am a server and software developer with great knowledge in Server
-      Establishing, Database Setup, and coding.
+      As an aspiring professional skilled in server establishment, database
+      setup, and coding, with hands-on experience in web development, I am
+      passionate about expanding my software development expertise.
     </p>
-    <ul>
-      <li>Email: sayanpramanik2012@gmail.com</li>
-      <li>Phone: 9940218268</li>
-      <li>Location: Chennai, India</li>
+
+    <h3>Languages</h3>
+    <ul class="languages">
       <li>
-        <a href="https://sayanpramanik2012.github.io/Proﬁle/"
-          >sayanpramanik2012.github.io/Proﬁle/</a
-        >
+        <span class="language">English</span>
+        <span class="proficiency">Full Professional Proficiency</span>
       </li>
       <li>
-        <a href="https://linkedin.com/in/sayan-pramanik-084358178"
-          >linkedin.com/in/sayan-pramanik-084358178</a
-        >
+        <span class="language">Assamese</span>
+        <span class="proficiency">Elementary Proficiency</span>
       </li>
       <li>
-        <a href="https://github.com/sayanpramanik2012"
-          >github.com/sayanpramanik2012</a
-        >
+        <span class="language">Bengali</span>
+        <span class="proficiency">Native or Bilingual Proficiency</span>
+      </li>
+      <li>
+        <span class="language">Hindi</span>
+        <span class="proficiency">Full Professional Proficiency</span>
+      </li>
+      <li>
+        <span class="language">Tamil</span>
+        <span class="proficiency">Limited Working Proficiency</span>
       </li>
     </ul>
+
+    <h3>Achievements</h3>
+
+    <div class="slideshow">
+      <div
+        class="slide"
+        [ngClass]="{ active: currentIndex === i }"
+        *ngFor="let slide of slides; let i = index"
+      >
+        <h3>{{ slide.achievement }}</h3>
+        <p>{{ slide.content }}</p>
+        <span class="arrow back" (click)="previousSlide()">Back</span>
+      </div>
+      <div class="controls">
+        <span class="arrow next" (click)="nextSlide()">Next</span>
+      </div>
+    </div>
   </div>
 </section>
