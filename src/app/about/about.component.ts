@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-about',
@@ -6,15 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
-  achievements = [
-    {
-      title: 'Achievement 1',
-      description: 'Description of Achievement 1',
-    },
-    {
-      title: 'Achievement 2',
-      description: 'Description of Achievement 2',
-    },
-    // Add more achievements as needed
-  ];
+  slides!: any[];
+  currentIndex = 0;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<any[]>('assets/achiv.json').subscribe((data) => {
+      this.slides = data;
+    });
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+  }
+
+  previousSlide() {
+    this.currentIndex =
+      (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+  }
 }

@@ -4,28 +4,52 @@
   </div>
   <div class="description">
     <h2>Sayan Pramanik</h2>
-    <h3>Server and Software Developer</h3>
+    <h3>Web Developer | Server and Software Developer</h3>
     <p>
-      I am a server and software developer with great knowledge in Server
-      Establishing, Database Setup, and coding.
+      As an aspiring professional skilled in server establishment, database
+      setup, and coding, with hands-on experience in web development, I am
+      passionate about expanding my software development expertise.
     </p>
 
-    <h3>Achievements</h3>
-    <carousel>
-      <slide *ngFor="let achievement of achievements">
-        <div class="achievement-item">
-          <!-- Display your achievement details here -->
-          <h4>{{ achievement.title }}</h4>
-          <p>{{ achievement.description }}</p>
-          <!-- Add any other relevant information -->
-        </div>
-      </slide>
-    </carousel>
+    <h3>Languages</h3>
+    <ul class="languages">
+      <li>
+        <span class="language">English</span>
+        <span class="proficiency">Full Professional Proficiency</span>
+      </li>
+      <li>
+        <span class="language">Assamese</span>
+        <span class="proficiency">Elementary Proficiency</span>
+      </li>
+      <li>
+        <span class="language">Bengali</span>
+        <span class="proficiency">Native or Bilingual Proficiency</span>
+      </li>
+      <li>
+        <span class="language">Hindi</span>
+        <span class="proficiency">Full Professional Proficiency</span>
+      </li>
+      <li>
+        <span class="language">Tamil</span>
+        <span class="proficiency">Limited Working Proficiency</span>
+      </li>
+    </ul>
 
-    <!-- <div class="button-container">
-      <button class="button type1" routerLink="/experience">
-        <span class="btn-txt">Know More about me</span>
-      </button>
-    </div> -->
+    <h3>Achievements</h3>
+
+    <div class="slideshow">
+      <div
+        class="slide"
+        [ngClass]="{ active: currentIndex === i }"
+        *ngFor="let slide of slides; let i = index"
+      >
+        <h3>{{ slide.achievement }}</h3>
+        <p>{{ slide.content }}</p>
+        <span class="arrow back" (click)="previousSlide()">Back</span>
+      </div>
+      <div class="controls">
+        <span class="arrow next" (click)="nextSlide()">Next</span>
+      </div>
+    </div>
   </div>
 </section>

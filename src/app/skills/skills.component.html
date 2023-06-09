@@ -1,2 +1,45 @@
-<p>Skilled in various Fields Click to know more on my knowledge</p>
-<p>HTML, CSS, TS, C++, Python, C, Angular</p>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+<section id="skills">
+  <h3>Skills</h3>
+  <div class="skills-container">
+    <div class="skill" (click)="showSkillDetails('html')">
+      <i class="fab fa-html5"></i>
+      <span>HTML</span>
+    </div>
+    <div class="skill" (click)="showSkillDetails('css')">
+      <i class="fab fa-css3"></i>
+      <span>CSS</span>
+    </div>
+    <div class="skill" (click)="showSkillDetails('ts')">
+      <i class="fab fa-js"></i>
+      <span>TypeScript</span>
+    </div>
+    <div class="skill" (click)="showSkillDetails('c++')">
+      <i class="fab fa-cuttlefish"></i>
+      <span>C++</span>
+    </div>
+    <div class="skill" (click)="showSkillDetails('python')">
+      <i class="fab fa-python"></i>
+      <span>Python</span>
+    </div>
+    <div class="skill" (click)="showSkillDetails('c')">
+      <i class="fas fa-code"></i>
+      <span>C</span>
+    </div>
+    <div class="skill" (click)="showSkillDetails('angular')">
+      <i class="fab fa-angular"></i>
+      <span>Angular</span>
+    </div>
+  </div>
+
+  <div *ngIf="selectedSkill" class="skill-details">
+    <div class="close" (click)="closeSkillDetails()">
+      <i class="fas fa-times"></i>
+    </div>
+    <h4>{{ selectedSkill }}</h4>
+    <p>{{ skillDetails[selectedSkill] }}</p>
+  </div>
+</section>
