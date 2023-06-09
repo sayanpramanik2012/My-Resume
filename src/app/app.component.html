@@ -1,5 +1,6 @@
 <ng-container *ngIf="!isLoading">
-  <app-header></app-header>
+  <app-header (click)="toggleAbout()"></app-header>
+  <app-about *ngIf="showAbout"></app-about>
   <router-outlet></router-outlet>
   <footer>
     <p>&copy; Sayan Pramanik</p>

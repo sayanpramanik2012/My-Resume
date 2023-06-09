@@ -8,6 +8,7 @@ import { interval } from 'rxjs';
 export class AppComponent {
   title = 'My-Resume';
   isLoading: boolean = false;
+  showAbout: boolean = true;
 
   constructor() {
     // Simulating loading for 1 second on component initialization
@@ -15,5 +16,8 @@ export class AppComponent {
     interval(1000).subscribe(() => {
       this.isLoading = false;
     });
+  }
+  toggleAbout() {
+    this.showAbout = false;
   }
 }
