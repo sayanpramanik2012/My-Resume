@@ -9,10 +9,14 @@ import { HttpClient } from '@angular/common/http';
 export class AboutComponent {
   slides!: any[];
   currentIndex = 0;
+  languages!: any[];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.http.get<any[]>('assets/languages.json').subscribe((data) => {
+      this.languages = data;
+    });
     this.http.get<any[]>('assets/achiv.json').subscribe((data) => {
       this.slides = data;
     });
@@ -25,5 +29,10 @@ export class AboutComponent {
   previousSlide() {
     this.currentIndex =
       (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+  }
+  calculateProgress() {
+    const slideCount = this.slides.length;
+    const progress = ((this.currentIndex + 1) / slideCount) * 100 + '%';
+    return progress;
   }
 }

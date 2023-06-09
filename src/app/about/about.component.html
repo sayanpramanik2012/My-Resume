@@ -13,43 +13,27 @@
 
     <h3>Languages</h3>
     <ul class="languages">
-      <li>
-        <span class="language">English</span>
-        <span class="proficiency">Full Professional Proficiency</span>
-      </li>
-      <li>
-        <span class="language">Assamese</span>
-        <span class="proficiency">Elementary Proficiency</span>
-      </li>
-      <li>
-        <span class="language">Bengali</span>
-        <span class="proficiency">Native or Bilingual Proficiency</span>
-      </li>
-      <li>
-        <span class="language">Hindi</span>
-        <span class="proficiency">Full Professional Proficiency</span>
-      </li>
-      <li>
-        <span class="language">Tamil</span>
-        <span class="proficiency">Limited Working Proficiency</span>
+      <li *ngFor="let language of languages">
+        <span class="language">{{ language.language }}</span>
+        <span class="proficiency">{{ language.proficiency }}</span>
       </li>
     </ul>
-
-    <h3>Achievements</h3>
-
-    <div class="slideshow">
-      <div
-        class="slide"
-        [ngClass]="{ active: currentIndex === i }"
-        *ngFor="let slide of slides; let i = index"
-      >
-        <h3>{{ slide.achievement }}</h3>
-        <p>{{ slide.content }}</p>
-        <span class="arrow back" (click)="previousSlide()">Back</span>
-      </div>
-      <div class="controls">
-        <span class="arrow next" (click)="nextSlide()">Next</span>
-      </div>
-    </div>
   </div>
 </section>
+
+<div class="slideshow">
+  <h3>Achievements</h3>
+  <div
+    class="slide"
+    [ngClass]="{ active: currentIndex === i }"
+    *ngFor="let slide of slides; let i = index"
+  >
+    <h3>{{ slide.achievement }}</h3>
+    <p>{{ slide.content }}</p>
+  </div>
+  <div class="controls">
+    <span class="arrow next" (click)="nextSlide()">&#8250;</span>
+    <span class="arrow back" (click)="previousSlide()">&#8249;</span>
+  </div>
+  <div class="progress-bar" [style.width]="calculateProgress()"></div>
+</div>
