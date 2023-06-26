@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-skills',
@@ -7,16 +8,23 @@ import { Component } from '@angular/core';
 })
 export class SkillsComponent {
   selectedSkill: string | null = null;
+  skills!: any[];
+  skillDetails: { [key: string]: string } = {};
+  programmingSkills!: any[];
 
-  skillDetails: { [key: string]: string } = {
-    html: 'Details about HTML',
-    css: 'Details about CSS',
-    ts: 'Details about TypeScript',
-    'c++': 'Details about C++',
-    python: 'Details about Python',
-    c: 'Details about C',
-    angular: 'Details about Angular',
-  };
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<any[]>('assets/skills.json').subscribe((data) => {
+      this.skills = data;
+      this.skills.forEach((skill) => {
+        this.skillDetails[skill.name] = skill.details;
+      });
+    });
+    this.http.get<any[]>('assets/programming-skills.json').subscribe((data) => {
+      this.programmingSkills = data;
+    });
+  }
 
   showSkillDetails(skill: string) {
     this.selectedSkill = skill;
