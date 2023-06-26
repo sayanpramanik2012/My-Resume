@@ -1,0 +1,30 @@
+[
+  {
+    "name": "HTML",
+    "level": "95%"
+  },
+  {
+    "name": "CSS",
+    "level": "90%"
+  },
+  {
+    "name": "SCSS",
+    "level": "67%"
+  },
+  {
+    "name": "TypeScript",
+    "level": "45%"
+  },
+  {
+    "name": "C++",
+    "level": "85%"
+  },
+  {
+    "name": "Python",
+    "level": "75%"
+  },
+  {
+    "name": "DBMS",
+    "level": "79%"
+  }
+]
